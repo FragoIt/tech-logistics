@@ -7,4 +7,6 @@ Mern app for ecommerce
 - Linda Dayanna Loaiza Lugo:
     -   Development Team Lead
     -   Product Owner
+- Saud Mauricio Gonzalez:
+    -   Database Expert
 ---
