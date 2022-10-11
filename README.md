@@ -1,2 +1,7 @@
-# tech-logistics
-mern app for ecommerce
+# Tech-logistics
+Mern app for ecommerce
+## Members:
+-Santiago Fragozo Sepulveda:
+    -   Software engineering student
+    -   Scrum Master
+---
