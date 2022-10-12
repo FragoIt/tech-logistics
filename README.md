@@ -9,4 +9,6 @@ Mern app for ecommerce
     -   Product Owner
 - Saud Mauricio Gonzalez:
     -   Database Expert
+- Jairo Alonso Martinez Gutierrez:
+    -   Development Team Lead
 ---
