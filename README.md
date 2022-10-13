@@ -11,4 +11,6 @@ Mern app for ecommerce
     -   Database Expert
 - Jairo Alonso Martinez Gutierrez:
     -   Development Team Lead
+- Yerson F. Castro Torres
+    -   Development Team Lead
 ---
