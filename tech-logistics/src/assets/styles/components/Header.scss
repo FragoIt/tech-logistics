@@ -1,0 +1,50 @@
+@import '../App.scss';
+
+.header { 
+    border-bottom: 2px solid var(--border);
+    top: 0px;
+    position: sticky;
+    z-index: 1;
+    backdrop-filter: blur(50px);
+    .wrapper { 
+        max-inline-size: 1300px;
+        padding-inline-end: 5px;
+        padding-inline-start: 5px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        block-size: 62px;
+    }
+    &__img {
+        margin: 10px;
+    }
+    &__bag {   
+        position: relative;
+        width: 3.4rem;
+        background: none;
+        border: none;
+        font: inherit;
+        cursor: pointer;
+        & img {
+            width: 2rem;
+      }
+      & span {
+        background: #313131;
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        text-align: center;
+        position:absolute;
+        top: 12px;
+        right: 0;
+      }
+    }
+}
+  
+@media screen and (min-width: 1024px) {
+    .header__img {
+        width: 150px;
+    }
+}
