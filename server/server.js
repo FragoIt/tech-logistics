@@ -7,7 +7,7 @@ import { errorHandler, notFound } from "./Middleware/Errors.js";
 import userRouter from "./Routes/UserRoutes.js";
 import orderRouter from "./Routes/orderRoutes.js";
 import cors from "cors";
-import { EP } from "../client frontend/src/Redux/Url.js";
+
 
 dotenv.config();
 connectDatabase();
@@ -19,7 +19,7 @@ app.use("/api/import", ImportData);
 app.use("/api/products", productRoute);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
-app.get(`${EP}/api/config/paypal`, (req, res) => {
+app.get(`/api/config/paypal`, (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID);
 });
 
