@@ -1,1 +1,1 @@
-export const EP = process.env.REACT_APP_SERVER_URL;
+export const EP = process.env.REACT_APP_SERVER_URL || "http://localhost:5000";

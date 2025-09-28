@@ -14,6 +14,12 @@ connectDatabase();
 const app = express();
 app.use(express.json());
 app.use(cors())
+
+// Test route
+app.get("/", (req, res) => {
+  res.send("API is running successfully!");
+});
+
 // API
 app.use("/api/import", ImportData);
 app.use("/api/products", productRoute);
@@ -27,6 +33,6 @@ app.get(`/api/config/paypal`, (req, res) => {
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 1000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, console.log(`server run in port ${PORT}`));
