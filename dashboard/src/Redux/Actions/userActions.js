@@ -17,10 +17,17 @@ export const login = (email, password) => async (dispatch) => {
     pauseOnFocusLoss: false,
     draggable: false,
     pauseOnHover: false,
-    autoClose: 2000,
+    autoClose: 3000,
   };
+  
   try {
     dispatch({ type: USER_LOGIN_REQUEST });
+
+    // Show loading message for potential cold start
+    const loadingToast = toast.info("Connecting to server...", {
+      ...ToastObjects,
+      autoClose: false,
+    });
 
     const config = {
       headers: {
@@ -34,21 +41,30 @@ export const login = (email, password) => async (dispatch) => {
       config
     );
 
+    // Dismiss loading toast
+    toast.dismiss(loadingToast);
+
     if (!data.isAdmin === true) {
       toast.error("You are not Admin", ToastObjects);
       dispatch({
         type: USER_LOGIN_FAIL,
       });
     } else {
+      toast.success("Login successful!", ToastObjects);
       dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
     }
 
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
+    // Dismiss any loading toast
+    toast.dismiss();
+    
     const message =
       error.response && error.response.data.message
         ? error.response.data.message
-        : error.message;
+        : error.code === 'ECONNABORTED' 
+          ? "Server is starting up, please try again..."
+          : error.message;
     if (message === "Not authorized, token failed") {
       dispatch(logout());
     }

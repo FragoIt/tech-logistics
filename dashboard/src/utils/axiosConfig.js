@@ -6,7 +6,7 @@ const axiosInstance = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10000, // 10 seconds timeout
+  timeout: 30000, // 30 seconds timeout for cold starts
 });
 
 // Request interceptor to add auth token
@@ -29,12 +29,25 @@ axiosInstance.interceptors.request.use(
 // Response interceptor for error handling
 axiosInstance.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
+    const originalRequest = error.config;
+    
+    // Handle timeout errors (backend cold start)
+    if (error.code === 'ECONNABORTED' && !originalRequest._retry) {
+      originalRequest._retry = true;
+      console.log('Backend is starting up, retrying...');
+      
+      // Wait 3 seconds and retry
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      return axiosInstance(originalRequest);
+    }
+    
     if (error.response?.status === 401) {
       // Token expired or invalid
       localStorage.removeItem('userInfo');
       window.location.href = '/login';
     }
+    
     return Promise.reject(error);
   }
 );
