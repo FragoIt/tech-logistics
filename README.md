@@ -3,14 +3,7 @@ Mern app for ecommerce
 ## Members:
 - Santiago Fragozo Sepulveda:
     -   Software engineering student
-    -   Scrum Master
-- Linda Dayanna Loaiza Lugo:
-    -   Development Team Lead
-    -   Product Owner
-- Saud Mauricio Gonzalez:
-    -   Database Expert
-- Jairo Alonso Martinez Gutierrez:
-    -   Development Team Lead
-- Yerson F. Castro Torres
-    -   Development Team Lead
+    - MF me, prodigy. This comeback is personal.
+    It's an apology to myself.
+    Remember why you started
 ---
